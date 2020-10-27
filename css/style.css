@@ -1,0 +1,1011 @@
+/*
+    1- common Styles
+    2- Gneral Styles
+    3- Sections
+       3.0  Header 
+       3.1  Home
+       3.2  About 
+       3.3  Portfolio 
+       3.4  Offer 
+       3.5  Service 
+       3.6  nambers 
+       3.7  Pricing 
+       3.8  Testimonail 
+       3.9  Team
+       3.10 Blog
+       3.11 Contact
+       3.12 Footer
+
+
+*/
+
+/* Start 1- common Styles*/
+        /*  
+        -container
+        -overlay
+        -opacity hover
+        -section header
+        -section padding
+        -hover effect 1 (left to right)
+        -hover effect 2 (top to bottom)
+        */
+/* End  1- common Styles*/
+
+/*Start 2- General Css Styles*/
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+}
+html
+{
+    scroll-behavior: smooth;
+}
+:root
+{
+    --mainColor : #6195ff ;
+    --goldColor : goldenrod ;
+    --grayColor : #999999;
+    --bg-gray   : #f9f9f9;
+    --whiteColor: #ffffff;
+    
+}
+.container
+{
+    width: 80% ;
+    margin: auto;
+}
+.overlay
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.5);
+}
+ul
+{
+    list-style: none;
+}
+.hover-opacity
+{
+    transition: opacity .5s;
+}
+.hover-opacity:hover
+{
+    opacity: 0.8;
+}
+/*Start LTR Effect*/
+.ltr-effect ,
+.tb-effect 
+{
+    position: relative;
+}
+.ltr-effect:after ,
+.tb-effect:after 
+{
+    position: absolute;
+    content: "";
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #333;
+    z-index: -1;
+    
+}
+.ltr-effect:after 
+{
+    width: 0;
+    height: 100%;
+    transition: width .5s;
+}
+.ltr-effect:hover:after
+{
+    width: 100%;
+} 
+.tb-effect:after 
+{
+    width: 100%;
+    height: 0;
+    transition: height .5s;
+}
+.tb-effect:hover:after
+{
+    height: 100%;
+}
+
+body
+{
+    font-family: 'Varela Round', sans-serif;
+}
+.clear /*  Solve float Problem*/
+{
+    clear: both;
+}
+h1,h2,h3,h4,h5,h6
+{
+    font-family: montserrat,sans-serif;
+}
+button
+{
+    font-family: inherit;
+}
+a
+{
+    text-decoration: none;  /* clear unline*/
+}
+/*section header*/
+.pd-y
+{
+    padding: 120px 0;
+}
+.section-header
+{
+    text-align: center;
+    height: 100px;
+}
+.section-header .section-title
+{
+    font-size: 35px;
+    text-transform: capitalize;
+    margin-bottom: 10px;
+}
+.section-header .line
+{
+    display: block;  /*span inline*/
+    width: 60px;
+    height: 5px;
+    margin: 0 auto 70px auto; /* center scren*/
+    background-color: var(--mainColor);
+
+}
+
+/*End   2- General Css Styles*/
+/* Start 3.0  Header */
+.header
+{ 
+position: fixed;
+display: flex;
+justify-content: center;
+align-items: center;
+flex-direction: row;
+flex-wrap: wrap;
+height: 60px;
+width: 100%;
+background-color:rgba(0,0, 0, .8);
+z-index:1;
+}
+/*.header-content  /* Replacement Clear | 
+                    Two Solve float Problem */
+/*{
+    overflow: hidden;
+}*/
+.header .logo
+{
+    width: 40%;
+    float: left;
+    
+}
+.header .logo img
+{
+    width: 25%;
+    padding: 20px;
+}
+.header .nav
+{
+    width: 60%;
+    float: left;
+    list-style: none; /* clear point black*/
+    text-align: right;
+}
+.header .nav > li
+{
+    display: inline-block; /* text in line*/
+    text-align: center;
+
+}
+.header .nav > li > a
+{
+    color: white;
+    display: block;
+    padding: 30px 13px;
+}
+.header .nav > li > a:after,
+.header .nav > li > a.active:after
+{
+    content: "";
+    display: block;
+    height: 3px;
+    background-color:var(--mainColor);
+    margin-top: 2px;
+    transition: width 0.5s;
+}
+.header .nav > li > a.active:after
+{
+    
+    width: 100%;
+    
+}
+.header .nav > li > a:after
+{
+    
+    width: 0;
+    
+}
+.header .nav > li > a:hover:after
+{
+    width: 100%;
+    
+}
+.dropdown
+{
+    position: relative;
+}
+.dropdown-menu
+{
+    position: absolute;
+    background-color: var(--mainColor);
+    width: 130px;
+    text-align: center;
+    left: -50%;
+    top: 60%;
+    border-radius: 15px;
+    list-style: none; /* clear point black*/
+    /* headen dropdowen*/
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.5s ,visibility 0.5s;
+}
+.dropdown-menu a 
+{
+    color: var(--whiteColor);
+    display: block;
+    padding: 5px;
+   
+}
+.dropdown:hover .dropdown-menu
+{
+    opacity: 1;
+    visibility: visible;
+}
+
+
+/* End  3.0  Header */
+
+/* Start 3.1  Home  */
+.home
+{
+    height: 100vh;
+    background-image:url(../images/background/background1.webp) ;
+    background-size: cover;
+    position: relative;
+}
+.home-content
+{
+    width: 65%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    text-align: center;
+}
+.home .title
+{
+    color: var(--whiteColor);
+    font-size: 3.05rem;
+    text-transform: uppercase;
+}
+.home-desc
+{
+    color: white;
+    margin: 20px 0;
+    letter-spacing: 2px;
+    line-height: 1.5;
+}
+.home .btn
+{
+    min-width: 150px;
+    padding: 15px 0;
+    border-radius: 5px;
+    border: 0;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.btn-start
+{
+    margin-right: 10px;
+    background-color: white;
+}
+.btn-learn
+{
+    background-color: var(--mainColor);
+    color: white;
+}
+
+/* End   3.1  HOMe  */
+
+
+/* Start 3.2  About  */
+.about-content
+{
+    overflow: hidden;
+}
+.about-item
+{
+    width: 30%;
+    float: left;
+    text-align: center;
+    /*text-transform: uppercase;*/
+    border: 1px solid #e8e8e8;
+    padding: 50px 20px;
+    
+}
+.about-item:hover .about-item-title
+{
+    color: var(--whiteColor);
+}
+.about-item:hover .icon ,
+.about-item:hover .about-item-link
+{
+    color: var(--goldColor);
+}
+.about-item .icon
+{
+    color: var(--mainColor);
+    margin-bottom: 20px;
+    transition: color .5s;
+}
+.about-item.mg
+{
+    margin: 0 5%;
+}
+.about-item-title
+{
+    text-transform: capitalize;
+    margin-bottom: 10px;
+    transition: color .5s;
+}
+.about-item-desc
+{
+    line-height: 1.5;
+    letter-spacing: 2px;
+    text-transform: capitalize;
+    margin-bottom: 10px;
+    color: #999999;
+}
+.about-item-link
+{
+    color: var(--mainColor);
+    text-transform: capitalize;
+    transition: color .5s;
+}
+
+/* End   3.2  About  */
+
+/* Start 3.3  Portfolio  */
+
+.portfolio-content
+{
+    overflow: hidden;
+}
+.portfolio-item
+{
+    width: 30%;
+    float: left;
+    margin-bottom: 50px;
+    position: relative;
+    padding: 20px;
+}
+.portfolio-item .layer-content
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .5s;
+    cursor: pointer;
+}
+.portfolio-item:hover .layer-content
+{
+    opacity: 1;
+    visibility: visible;
+}
+.layer-content .layer-info
+{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    text-align: center;
+    transform: translate(-50% ,-50%);
+}
+.layer-content .category
+{
+    color: var(--mainColor);
+    text-transform: uppercase;
+    display: block;/*margin  علشان اعرف اعمل ال */
+    margin-bottom:10px ;
+    font-weight: bolder;
+    letter-spacing: 1.5px;
+    position: relative;
+    top: 10px;
+    opacity: 0;
+    visibility: hidden;
+    transition: top .5s ,opacity .5s;
+    transition-delay: .2s;
+}
+.layer-content-title
+{
+    color: var(--whiteColor);
+    font-size: 15px;
+    margin-bottom: 10px;
+    letter-spacing: 1.5px;
+    position: relative;
+    top: 10px;
+    opacity: 0;
+    visibility: hidden;
+    transition: top .5s ,opacity .5s;
+    transition-delay: .3s;
+}
+.layer-content a
+{
+    position: relative;
+    top: 10px;
+    opacity: 0;
+    visibility: hidden;
+    transition: top .5s ,opacity .5s;
+    transition-delay: .5s;
+}
+
+.layer-content a i
+{
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    background-color:var(--mainColor);
+    color: var(--whiteColor);
+    border-radius: 10%;
+    line-height: 40px;/*في النص  icon  علشان اخلي ال */
+}
+.portfolio-item:hover .layer-content .category ,
+.portfolio-item:hover .layer-content-title ,
+.portfolio-item:hover .layer-content a
+{
+    top: 0;
+    opacity: 1;
+    visibility: visible;
+} 
+
+.portfolio-item.mg
+{
+    margin:0 5%;
+}
+.portfolio-item img
+{
+    width: 100%;
+}
+/* End   3.3  Portfolio  */
+/* Start 3.4  Offer  */
+.offer
+{
+
+}
+.offer-content
+{
+    overflow: hidden;
+}
+.offer-item
+{
+    width: 30%;
+    float: left;
+    margin-bottom: 20px;
+    border: 1px solid #e8e8e8;
+    padding: 30px 15px 30px 70px;
+    position: relative;
+}
+.offer-item .icon
+{
+    position: absolute;
+    top: 30px;
+    left: 20px;
+    color: var(--mainColor);
+    transition: color .5s;
+}
+.offer-item-title
+{
+    text-transform: capitalize;
+    margin-bottom: 15px;
+    transition: color .5s;
+}
+.offer-item-desc
+{
+    text-transform: capitalize;
+    margin-bottom: 15px;
+    line-height: 1.8;
+    color: #999999;
+    
+}
+.offer-item.mg
+{
+    margin: 0 5%;
+}
+.offer-item:hover .offer-item-title
+{
+    color: var(--whiteColor);
+}
+.offer-item:hover .icon
+{
+    color: var(--goldColor);
+}
+/* End   3.4  Offer  */
+
+/* Start 3.5  Service  */
+.service-item
+{
+    width: 50%;
+    float: left;
+}
+.service-item .section-header
+{
+    text-align: left;
+}
+.service-item .section-header .line
+{
+    margin: 0 0 50px 0;
+}
+.service-item-desc
+{
+    padding-right: 20px;
+    color: #999999;
+    line-height: 1.5;
+    font-size: 18px;
+    margin-bottom: 20px;
+}
+.service-list
+{
+    list-style: none;
+}
+.service-list li
+{
+    margin-bottom: 10px;
+    color: #999999;
+}
+.service-list li i
+{
+    border: 2px solid var(--mainColor);
+    border-radius: 50%;
+    color: var(--mainColor);
+    width: 30px;
+    height: 30px;
+
+    padding:5px;
+}
+.service-item-img img
+{
+    width: 100%;
+}
+.service-bollets
+{
+    list-style: none;
+    text-align: center;
+}
+.service-bollets li
+{
+    width: 15px;
+    height: 10px;
+    display: inline-block;
+    background-color: #e8e8e8;
+    margin: 10px 5px;
+    border-radius: 40%;
+}
+.service-bollets li.active 
+{
+    background-color: var(--mainColor);
+}
+.service-bollets li:hover 
+{
+    background-color: var(--mainColor);
+}
+/* End   3.5  Service  */
+
+/* Start 3.6  nambers */
+.nambers
+{
+    position: relative;
+    background-image: url(../images/background/background2.webp);
+    background-size: cover;
+    background-attachment: fixed;
+    height: 300px;
+}
+.nambers-items
+{
+    overflow: hidden;
+    
+}
+.namber-item
+{
+    width: 25%;
+    float: left;
+    text-align: center;
+}
+.namber-item .icon
+{
+    color: var(--mainColor);
+    margin-bottom: 15px;
+}
+.namber-item-title
+{
+    font-weight: bolder;
+    font-size: 30px;
+    color: var(--whiteColor);
+}
+.namber-item-text
+{
+    color: var(--whiteColor);
+    text-transform: capitalize;
+}
+/* End   3.6  nambers */
+
+/* Start 3.7  Pricing  */
+.pricing
+{
+ cursor: pointer;
+}
+.pricing-plans
+{
+    overflow: hidden;
+}
+.pricing-item
+{
+    width: 30%;
+    float: left;
+    padding: 40px 15px;
+    border: 1px solid #e8e8e8;
+    text-align: center;
+}
+.pricing-item.mg
+{
+    margin: 0 5%;
+}
+.pricing-item-text
+{
+    color: #999999;
+    text-transform: uppercase;
+    font-size: 17px;
+    transition: color .5s;
+}
+.pricing-item-permonth
+{
+    width: 130px;
+    height: 130px;
+    padding: 25px 0;
+    margin: 20px auto;
+    border: 2px solid var(--mainColor) ;
+    border-radius: 50%;   
+    transition: color .5s;
+}
+.pricing-item-permonth .doller
+{
+    font-size: 50px;
+}
+.pricing-item-permonth .month 
+{
+    text-transform: uppercase;
+    font-weight: bolder;
+    font-size: 15px;
+}
+.pricing-list
+{
+    list-style: none;
+}
+.pricing-list li
+{
+    color: #999999;
+    line-height: 1.8;
+}
+.pricing-item-purchase
+{
+    background: none;
+    border: 0;
+    display: block;
+    width: 140px;
+    border:1px solid var(--mainColor);
+    padding: 10px;
+    margin: 15px auto 0 auto;
+    color: var(--mainColor);
+    cursor: pointer;
+    transition: color .5s;
+}
+.pricing-item:hover .pricing-item-permonth ,
+.pricing-item:hover .pricing-item-purchase ,
+.pricing-item:hover .pricing-item-text
+{
+    color: var(--goldColor);
+}
+/* End   3.7  Pricing  */
+
+/* Start 3.8  Testimonail  */
+.testimonail
+{
+    position: relative;
+    background-image: url(../images/background/background3.webp);
+    background-attachment: fixed;
+    background-size: cover;
+    height: 400px; /* علشان الصوره تظهر*/
+}
+.testimonail-content
+{
+    overflow: hidden;
+    padding: 120px 0;
+    width: 80%;
+    margin: auto;
+}
+.testimonail-item
+{
+    width: 50%;
+    float: left;
+    color: var(--whiteColor);
+}
+.testimonail-item .testimonail-toplayer
+{
+    position: relative;
+    padding: 10px 2px 40px 100px;
+}
+.testimonail-item .testimonail-toplayer img
+{
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    border-radius: 50%;
+}
+.testimonail-item .testimonail-toplayer h3
+{
+    margin:5px 0;
+}
+.testimonail-item .testimonail-toplayer span
+{
+    color: var(--mainColor);
+}
+.testimonail-desc
+{
+    line-height: 1.6;
+    font-size: 17px; 
+}
+/* End   3.8  Testimonail  */
+
+/* Start 3.9  Team */
+.team 
+{
+    cursor: pointer;
+}
+.team-content
+{
+    overflow: hidden;
+}
+.team-item 
+{
+    width: 30%;
+    float: left;
+    background-color: #e8e8e8;
+    padding: 40px 10px;
+    text-align: center;
+}
+.team-item.mg
+{
+    margin: 0 5%;
+}
+.team-item .team-img
+{
+    width: 90%;
+    margin: auto;
+    position: relative;
+}
+.team-overlay 
+{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity .5s ,visibility .5s;
+}
+.team-overlay a 
+{
+    display: block;
+    width: 40px;
+    height: 40px;
+    background: rgba(0,0,0,0.5);
+    color: var(--whiteColor);
+    margin-left: auto;
+    transition: color .5s , background .5s;
+}
+.team-overlay a i 
+{
+    line-height: 40px; 
+}
+.team-item .team-img img
+{
+    width: 100%;
+}
+.team-item .team-info-title
+{
+    color: #222;
+    margin: 10px 0;
+    transition: color .5s;
+}
+.team-item .team-info-text
+{
+    color: #999999;
+    text-transform: uppercase;
+    font-size: 14px;
+    transition: color .5s;
+}
+.team-item:hover .team-overlay
+{
+    visibility: visible;
+    opacity: 1;
+}
+.team-item.tb-effect
+{
+    z-index: 1;
+}
+.team-item:hover .team-info-title
+{
+    color: var(--whiteColor);
+}
+.team-item:hover .team-info-text
+{
+    color: var(--goldColor);
+}
+.team-item:hover .team-overlay a 
+{
+    
+    color: var(--goldColor);
+}
+/* End   3.9  Team */
+/* Start 3.10 Blog */
+.bolg
+{
+    background-color: #f8f8f8;
+    
+}
+.blog-content
+{
+    overflow: hidden;
+}
+.blog-item
+{
+    width: 30%;
+    float: left;
+    background-color: var(--whiteColor);
+    text-align: center;
+    cursor: pointer;
+}
+.blog-item.mg
+{
+    margin: 0 5%;
+}
+.blog-item-img img
+{
+    width: 100%;
+}
+.blog-info
+{
+    padding: 20px;
+}
+.blog-list
+{
+    list-style: none;
+    margin: 10px 0;
+}
+.blog-list li 
+{
+    display: inline-block;
+    margin: 0 5px;
+}
+.blog-list li i
+{
+    color: var(--mainColor);
+    margin-right: 2px ;
+}
+.blog-titel
+{
+    margin: 20px 0;
+    font-weight: bolder;
+    text-transform: capitalize;
+}
+.blog-desc
+{
+    color: #999999;
+    margin-bottom: 10px;
+    line-height: 1.5;
+    letter-spacing: 1.2px;
+}
+.blog-link
+{
+    color: var(--mainColor);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+/* End   3.10 Blog */
+/* Start 3.11  Contact  */
+/* End   3.11  Contact */
+/* Start 3.12  Footer   */
+footer
+{
+    padding: 3%;
+    padding-bottom: 5%;
+    background-color:#1c1d21;
+}
+
+
+footer div.left 
+{
+    float: left;
+    
+}
+footer div.left span
+{
+    padding-right: 10px;
+    color:#929496;
+}
+footer div.left a 
+{
+    letter-spacing: 10px;
+    display: inline-block;
+    color:var(--whiteColor);
+    
+}
+
+footer div.left a:nth-of-type(1):hover
+{
+    color: #1a91da;
+    /*1a91da*/
+}
+footer div.left a:nth-of-type(2):hover
+{
+    color:#1a91da;
+    
+}
+footer div.left a:nth-of-type(3):hover
+{
+    color: #4267b2;
+    
+}
+footer div.left a:nth-of-type(4):hover
+{
+    color: #1a91da;
+    
+}
+
+footer div.right
+{
+    float: right;
+}
+footer div.right span
+{
+    color: #929496;
+}
+/* End   3.12  Footer   */
+/* Start 3.   */
+/* End   3.   */
+
+
+        
+
+
+ 
+
+
